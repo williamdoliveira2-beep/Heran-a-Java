@@ -1,0 +1,65 @@
+package br.com.william.screenmatch.heranca;
+
+public class Carro {
+    private String modelo;
+    private double ano1;
+    private double ano2;
+    private double ano3;
+    public Carro(String modelo){
+        this.modelo = modelo;
+    }
+    public void exibir(){
+        System.out.println("Modelo: " + modelo);
+        System.out.println("ano 1: " + ano1);
+        System.out.println("ano 2: " + ano2);
+        System.out.println("ano 3: " + ano3);
+        System.out.println("maior preco: "+ maior());
+        System.out.println("menor preco: "+ menor());
+    }
+    public void precoAno(double ano1, double ano2, double ano3){
+        this.ano1 = ano1;
+        this.ano2 = ano2;
+        this.ano3 = ano3;
+    }
+    public double maior(){
+        double maior = ano1;
+        if (maior > ano2){
+            maior = ano2;
+        }
+        if(maior < ano3){
+            maior = ano3;
+        }
+        return maior;
+    }
+    public double menor(){
+        double menor = ano1;
+        if (menor > ano2){
+            menor = ano2;
+        }
+        if(menor > ano3){
+            menor = ano3;
+        }
+        return menor;
+    }
+}
+
+package br.com.william.screenmatch.heranca;
+
+public class ModeloCarro extends Carro {
+
+    public ModeloCarro(String modelo) {
+        super(modelo);
+    }
+}
+
+package br.com.william.screenmatch.heranca;
+
+public class Principal {
+    public static void main(String[] args) {
+        ModeloCarro modelo = new ModeloCarro("sivic");
+        modelo.precoAno(2000, 3000, 4000);
+
+        modelo.exibir();
+
+    }
+}
